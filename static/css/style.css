@@ -1,0 +1,200 @@
+:root {
+    --blue: #1d9bf0;
+    --black: #000;
+    --offwhite: #e7e9ea;
+    --gray: #71767b;
+}
+
+body {
+    background: var(--black);
+    color: var(--offwhite);
+}
+
+.mainContent {
+    display: flex;
+    /* height: 50vh; */
+}
+
+.mainContent form {
+    width: 100%;
+}
+
+.mainContent form textarea {
+    width: 100%;
+}
+
+.btn {
+    background: var(--blue);
+    color: var(--offwhite);
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: rgb(90, 206, 90);
+}
+
+.result {
+    color: var(--gray);
+}
+
+.result p {
+    font-size: large;
+    color: var(--offwhite);
+}
+
+/* -------card--------- */
+.card {
+    font-family: Montserrat, sans-serif;
+    width: 100%;
+    height: fit-content;
+    margin-top: 10%;
+    translate: 0 -6px;
+    background: var(--blue);
+    border: 3px solid #000000;
+    box-shadow: 12px 12px 0 #000000;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.head {
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    width: 100%;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    padding: 5px 12px;
+    color: #000000;
+    border-bottom: 3px solid #000000;
+}
+
+.content {
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.card:hover {
+    translate: 0 -3px;
+}
+
+img {
+    margin: 10px;
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--gray);
+    margin: 10px;
+}
+
+/* -------animation-------- */
+/* .container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+} */
+
+img.X {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+    animation: popOut 2s ease forwards;
+    filter: invert();
+    display: none;
+}
+
+img.left {
+    left: -50px;
+    animation: popOutLeft 2s ease forwards;
+    animation-delay: 0.2s;
+}
+
+img.right {
+    right: -50px;
+    animation: popOutRight 2s ease forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes popOut {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+        top: 50%;
+        left: 50%;
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2) rotate(20deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(10deg);
+        top: 0;
+    }
+}
+
+@keyframes popOutLeft {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+        top: 50%;
+        left: 50%;
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(-10deg);
+        top: 10%;
+        left: 10%;
+    }
+}
+
+@keyframes popOutRight {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+        top: 50%;
+        left: 50%;
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(10deg);
+        top: 10%;
+        right: 10%;
+    }
+}
+
+
+/* ---- media ---- */
+@media screen and (min-width: 768px) {
+    .mainContent form {
+        width: 50%;
+    }
+
+    .card {
+        width: 50%;
+    }
+
+    img.X {
+        scale: 0.5;
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    img.X {
+        scale: 1;
+        display: block;
+    }
+}

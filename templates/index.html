@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment_analysis_NLP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+
+<body>
+    {% block main %}
+    <div class="container position-relative d-flex justify-content-center flex-column">
+        <img src="{{url_for('static', filename='img/x_twitter.png')}}" alt="X logo" class="X left">
+        <img src="{{url_for('static', filename='img/x_twitter.png')}}" alt="X logo" class="X right">
+        <div class="d-flex justify-content-center align-items-center flex-column mt-4">
+            <h1 class="d-flex text-center">Sentiment Analysis using NLP</h1>
+            <h4><i>X</i> (twitter) dataset</h4>
+        </div>
+        <div class="mainContent d-flex justify-content-center">
+            {% if result %}
+            <div class="card">
+                <div class="head">Your Comment</div>
+                <div class="content">
+                    {{tweet}}
+                    <br />
+                </div>
+            </div>
+            {% else %}
+            <form class="d-flex justify-content-center align-items-center flex-column" action="{{url_for('predict')}}"
+                method="POST">
+                <div class="d-flex flex-column w-100 justify-content-center align-items-start mb-3">
+                    <label for="tweet" class="form-label">Enter the tweet</label>
+                    <textarea class="form-control" id="tweet" name="tweet" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn">Predict</button>
+                <p class="about">This project is a Flask-based web application that performs sentiment analysis using a trained NLP model. The app takes user input text, processes it using TF-IDF vectorization, and predicts whether the sentiment is positive, negative or neutral. The model was trained on the X (twitter) dataset.
+                </p>
+            </form>
+            {% endif %}
+        </div>
+        <div class="result d-flex justify-content-center align-items-center flex-column">
+            {% if result %}
+            <h4 class="mt-4">Result:</h4>
+            {% if result == 'Positive' %}
+            <p style="color: yellowgreen;">This is a {{result}} Comment</p><img
+                src="{{url_for('static', filename='img/happy.png')}}" alt="happy face">
+            {% elif result == 'Negative'%}
+            <p style="color: red;">This is a {{result}} Comment</p><img
+                src="{{url_for('static', filename='img/sad face.png')}}" alt="sad face">
+            {% else %}
+            <p>This is a {{result}} Comment</p><img src="{{url_for('static', filename='img/neutral face.png')}}"
+                alt="neutral face">
+            {% endif %}
+            <a href="/"><button type="button" class="btn">Try another comment</button></a>
+            {% endif %}
+        </div>
+    </div>
+    {% endblock main %}
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+</html>
