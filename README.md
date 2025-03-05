@@ -54,7 +54,12 @@ Follow these steps to run the project locally:
 
 ## 📸 Screenshots
 
-Add screenshots here to showcase your app's interface or Postman tests.
+![home_image](static/img/ss%201.jpeg)
+
+![pos_image](static/img/ss%203%20positive.jpeg)
+
+![neg_image](static/img/ss%202%20negative.jpeg)
+
 
 ## 📚 Project Structure
 
@@ -85,7 +90,7 @@ Add screenshots here to showcase your app's interface or Postman tests.
 
 ## 🛠️ Author
 
-Aditya Bhoir — [LinkedIn Profile](www.linkedin.com/in/adityabhoir510) — [Portfolio](https://adityabdev.vercel.app/)
+Aditya Bhoir — [LinkedIn Profile](https://www.linkedin.com/in/adityabhoir510) — [Portfolio](https://adityabdev.vercel.app/)
 
 Feel free to reach out !
 
